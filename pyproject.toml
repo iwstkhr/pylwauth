@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pylwauth"
+version = "0.0.1"
+authors = [
+  { name="iwstkhr", email="iwasa.takahiro@devnote.tech" },
+]
+description = "An unofficial library for LINE WORKS Service Account Authentication"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests==2.28.1",
+    "PyJWT==2.4.0",
+    "cryptography==37.0.4",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/iwstkhr/pylwauth"
+"Bug Tracker" = "https://github.com/iwstkhr/pylwauth/issues"
