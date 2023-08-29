@@ -1,15 +1,15 @@
 import pytest
 from datetime import datetime
-from unittest.mock import MagicMock, patch
+from pytest_mock import MockFixture
 
-from pylwauth import Token
+from pylwauth import Token, models
 
 
 class TestToken:
     @pytest.fixture
-    @patch('pylwauth.models.datetime', return_value=MagicMock(wraps=datetime))
-    def instance(self, dt: MagicMock) -> Token:
-        dt.now().timestamp.return_value = 100
+    def instance(self, mocker: MockFixture) -> Token:
+        mocker.patch('pylwauth.models.datetime', return_value=mocker.MagicMock(wraps=datetime))
+        mocker.patch.object(models.datetime.now(), 'timestamp', return_value=100)
         return Token({
             'access_token': 'access_token',
             'refresh_token': 'refresh_token',
